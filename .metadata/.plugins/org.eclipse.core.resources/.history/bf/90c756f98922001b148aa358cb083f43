@@ -1,0 +1,27 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class ContainString {
+
+    // Complete the twoStrings function below.
+    static String twoStrings(String s1, String s2) {
+        HashMap<String,Integer> t1 = new HashMap<String,Integer>();
+        HashMap<String,Integer> t2 = new HashMap<String,Integer>();
+        
+        
+        return null;
+    }
+
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) throws IOException {
+
+            String result = twoStrings("hello", "hi");
+
+    }
+}

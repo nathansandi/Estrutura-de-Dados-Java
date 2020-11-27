@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="true" key="J2EE_EXPORT_OVERWRITE"/>
+	<item value="true" key="J2EE_EXPORT_SOURCE"/>
+	<list key="J2EE_EXPORT_JST_EAR">
+		<item value="C:\Users\nsand\OneDrive\Área de Trabalho\VictoriaProjectEAR\portal-clientes-rest.ear"/>
+		<item value="D:\projects\VictoriaProjectEAR\VictoriaProjectEAR.ear"/>
+		<item value="D:\projects\VictoriaProjectEAR\portal-clientes-rest.ear"/>
+	</list>
+	<list key="J2EE_EXPORT_JST_WEB">
+		<item value="D:\projects\VictoriaProjectEAR\VictoriaProjectWeb.war"/>
+		<item value="D:\projects\VictoriaProjectWeb\VictoriaProjectWeb.war"/>
+	</list>
+</section>

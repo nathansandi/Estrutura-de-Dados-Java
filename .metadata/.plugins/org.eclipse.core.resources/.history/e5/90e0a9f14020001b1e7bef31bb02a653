@@ -1,0 +1,46 @@
+/*
+ * 
+Print Yes if he can use the magazine to create an untraceable replica of his ransom note. Otherwise, print No.
+
+Sample Input 0
+
+6 4
+give me one grand today night
+give one grand today
+Sample Output 0
+
+Yes
+Sample Input 1
+
+ */
+public class MainR {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		 String[] teste1 = new String[29];
+		 String[] teste2 = new String[20];
+		 teste1[0] = "give";
+		 teste1[1] = "the";
+		 teste1[2] = "note";
+		 
+		 teste2[0] = "give";
+		 teste2[1] = "note";
+		 //Expect True 
+		 soluciona(teste1,teste2);
+		 
+		 teste1[0] = "give";
+		 teste1[1] = "the";
+		 teste1[2] = "note";
+		 
+		 teste2[0] = "give";
+		 teste2[1] = "voice";
+		 //Expect False  
+		 soluciona(teste1,teste2);
+	
+	}
+	
+	public static void soluciona(String[] magazine, String[] note) {
+		
+	}
+
+}

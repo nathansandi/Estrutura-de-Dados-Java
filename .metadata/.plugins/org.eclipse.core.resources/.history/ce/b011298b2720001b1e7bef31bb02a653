@@ -1,0 +1,47 @@
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+public class ConjuntoEspalhamento {
+	private List<List<String>> tabela = new ArrayList<List<String>>();
+	
+	//Tabela espalhamento
+	//Organizar pela primeira letra 
+	public ConjuntoEspalhamento() {
+		for(int i =0;i<26;i++) {
+			LinkedList<String> lista = new LinkedList<String>();
+			tabela.add(lista);
+		}
+	}
+	//Função espalhamento 
+	//Vai verificar uma palavra e devolver o indice assosiado
+	private int calcularIndiceDaTabela(String palavra) {
+		//retorna 0 a 25
+		return palavra.toLowerCase().charAt(0)%26;
+	}
+	
+	public void adiciona(String palavra) {
+		if(!this.contem(palavra)) {
+			int indice = this.calcularIndiceDaTabela(palavra);
+			List<String> lista = this.tabela.get(indice);
+			lista.add(palavra);
+		}
+	}
+	public void remove(String palavra) {
+		if(!this.contem(palavra)) {
+			int indice = this.calcularIndiceDaTabela(palavra);
+			List<String> lista = this.tabela.get(indice);
+			lista.remove(palavra);
+		}
+	}
+	public boolean contem(String palavra) {
+		return false;
+	}
+	public List<String> pegaTodas(){
+		return null;
+	}
+	public int tamanho() {
+		return 0;
+	}
+	
+}

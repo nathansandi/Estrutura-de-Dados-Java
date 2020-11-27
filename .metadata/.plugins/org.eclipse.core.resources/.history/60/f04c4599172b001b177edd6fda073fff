@@ -1,0 +1,115 @@
+package pt.victoria.hub.application;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.json.JSONArray;
+import  org.json.JSONObject;
+
+import pt.victoria.hub.Model.User.User;
+import pt.victoria.hub.application.model.ApplicationCode;
+import pt.victoria.hub.b2c.ScarService.LoginRequest;
+import pt.victoria.hub.b2c.ScarService.LoginResponse;
+import pt.victoria.hub.b2c.ScarService.ScarServiceProxy;
+
+public class LoginService extends HttpServlet{
+
+	
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
+	public LoginService() {
+	        super();
+	}
+
+    
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	    
+    	ApplicationCode appCode = new ApplicationCode();
+    	String getAppCode = appCode.getApplicationCode();
+    	
+    	request.setCharacterEncoding("utf-8");
+		response.setContentType("application/json");
+		response.setCharacterEncoding("utf-8");
+		
+		PrintWriter out = response.getWriter();
+
+		String responseString = JSONManagement.getJsonDefaultResult();
+
+		ScarServiceProxy callLogin= new ScarServiceProxy();
+		LoginResponse loginResponse = new LoginResponse();
+		// Get Request Parameters
+		JSONObject requestParameters;
+    	String usuario;
+    	String password;
+    	LoginRequest loginRequest = new LoginRequest();
+    	User newUser = new User();
+    	try {
+			requestParameters = JSONManagement.getRequestParameters(request.getReader());
+			usuario = requestParameters.getString("username");
+			password = requestParameters.getString("password");
+			loginRequest.setApplicationCode(getAppCode);
+			newUser.setUsername(usuario);
+			loginRequest.setUser(newUser);
+			loginRequest.setPassword(password);
+
+		} catch (Exception e) {
+			responseString = JSONManagement.getJsonResult(-1, e.getMessage(), null);
+			out.print(responseString);
+			return;
+		}
+    	// Business Logic
+	
+		try {
+
+			loginResponse=callLogin.login(loginRequest);
+
+			JSONObject jsonOutput = new JSONObject();
+			JSONObject jsonOutputReturn = new JSONObject();
+			jsonOutputReturn.put("status", loginResponse.getReturnInfo().getStatus().getValue()); 
+			jsonOutputReturn.put("code", loginResponse.getReturnInfo().getCode());
+			jsonOutputReturn.put("message", loginResponse.getReturnInfo().getMessage());
+			jsonOutputReturn.put("phase", loginResponse.getReturnInfo().getPhase().getValue());
+			 // Create Inner JSON Object 
+			jsonOutput.put("response",jsonOutputReturn);
+			if (loginResponse.getUser() != null) {
+				//JsonObject jsonObjectTest = new JsonParser().parse(loginResponse.getUser().toString()).getAsJsonObject();
+			    JSONObject jArr = new JSONObject(loginResponse.getUser());
+				jsonOutput.put("user",jArr);
+			}
+			jsonOutput.put("token",loginResponse.getToken());
+			//jsonOutput.put("firstLogin",loginResponse.getFirstLogin());
+			responseString = jsonOutput.toString();
+			
+		} catch (Exception e) {
+					
+			JsonObject responseData = new JsonObject();
+			JsonObject returnInfo = new JsonObject();
+			returnInfo.addProperty("status", loginResponse.getReturnInfo().getStatus().getValue()); 
+		    returnInfo.addProperty("code", loginResponse.getReturnInfo().getCode());
+			returnInfo.addProperty("message", loginResponse.getReturnInfo().getMessage());
+			    // Create Inner JSON Object 
+			responseData.add("response", returnInfo);
+			out.print(responseData);
+			return;
+	
+
+		}
+		out.print(responseString);
+
+    }
+    
+
+}

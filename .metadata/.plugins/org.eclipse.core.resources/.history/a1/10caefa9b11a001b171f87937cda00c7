@@ -1,0 +1,29 @@
+package com.listas.model;
+
+import java.util.Arrays;
+
+public class ArrayClass {
+	private Aluno[] alunos = new Aluno[100];
+	
+	public void add(Aluno aluno) {
+		
+	}
+	public void addAt(int pos, Aluno aluno) {
+		
+	}
+	public Aluno get(int pos) {
+		return null;
+	}
+	public void remove(int pos) {
+		
+	}
+	public boolean contain(Aluno aluno) {
+		return false;
+	}
+	public int size() {
+		return 0;
+	}
+	public String toString() {
+		return Arrays.toString(alunos);
+	}
+}

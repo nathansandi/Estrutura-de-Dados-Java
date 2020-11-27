@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.lang.StringBuilder"/>
+<fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
+<fullyQualifiedTypeName name="pt.victoria.hub.application.GetProductDetailsByAccountService"/>
+<fullyQualifiedTypeName name="pt.victoria.hub.b2c.FinancialProductsService.GetSubAccountsByProductRequest"/>
+<fullyQualifiedTypeName name="pt.victoria.hub.b2c.FinancialProductsService.GetSubAccountsByProductResponse"/>
+<fullyQualifiedTypeName name="org.json.JSONArray"/>
+<fullyQualifiedTypeName name="pt.victoria.hub.b2c.FinancialProductsService.GetAccountsBySubAccountResponse"/>
+<fullyQualifiedTypeName name="pt.victoria.hub.b2c.FinancialProductsService.GetAccountsBySubAccountRequest"/>
+<fullyQualifiedTypeName name="pt.victoria.hub.Model.Fund.SubAccount"/>
+<fullyQualifiedTypeName name="pt.victoria.hub.b2c.FinancialProductsService.GetAccountMovementsBySubAccountResponse"/>
+<fullyQualifiedTypeName name="pt.victoria.hub.b2c.FinancialProductsService.GetAccountMovementsBySubAccountRequest"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="pt.victoria.hub.application.model.PreferencialContacts"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+</qualifiedTypeNameHistroy>

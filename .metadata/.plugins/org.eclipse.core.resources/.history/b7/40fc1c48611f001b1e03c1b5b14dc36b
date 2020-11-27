@@ -1,0 +1,26 @@
+
+public class Main {
+	public static void main(String[] args) {
+		Fila<Peca> fila = new Fila<Peca>();
+		
+		Peca pecaInsere = new Peca();
+		fila.insere(pecaInsere);
+		
+		Peca pecaRemove = fila.remove();
+		
+		if(fila.vazia()) {
+			System.out.println("A pilha está vazia");
+		}
+		Fila<String> fila2 = new Fila<String>();
+		
+		fila2.insere("Teste");
+		fila2.insere("Teste 1");
+		
+		String teste = fila2.remove();
+		String teste1 = fila2.remove();
+		
+		System.out.println(teste);
+		System.out.println(teste1);
+		
+	}
+}

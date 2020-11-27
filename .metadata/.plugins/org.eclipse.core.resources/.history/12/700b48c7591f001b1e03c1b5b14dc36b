@@ -1,0 +1,12 @@
+
+public class Pilha {
+	public void insere(Peca peca) {
+		
+	}
+	public Peca remove() {
+		return null;
+	}
+	public boolean vazia() {
+		return false;
+	}
+}

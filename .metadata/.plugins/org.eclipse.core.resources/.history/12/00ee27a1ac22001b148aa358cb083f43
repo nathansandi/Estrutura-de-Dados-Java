@@ -1,0 +1,80 @@
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashMap;
+
+public class Anagrama {
+	   // Complete the sherlockAndAnagrams function below.
+    static int sherlockAndAnagrams(String s) {
+    	 HashMap<String,Integer> t1 = new HashMap<String,Integer>();
+    	 HashMap<String,Integer> t2 = new HashMap<String,Integer>();
+     	
+    	 StringBuffer sb = new StringBuffer(s);
+
+    	 String s1 =  sb.reverse().toString();
+    	//1-Faço Mapeamento dos Conjuntos
+    	//2-Quando tiver uma nova ocorrencia, verifico se ela é ou nao vizinha
+    	//3-Se n for, adiciono +1
+    	//4-depois adiciono na contagem a logica da PA
+    	 int contador = 0;
+    	 Integer occ = null;
+         for(int i = 0 ; i <s.length() ; i++) {
+        	 for(int j=i ; j < s.length() ; j++) {
+        		String atual = s.substring(i, j+1);
+             	occ = t1.get(atual);         	
+             	if(atual.length() < s1.length())
+              	{
+	             	if(occ==null){
+	              		t1.put(s.substring(i,j+1),1);
+	              		occ=1;
+	              	}else{
+	              		t2.put(s.substring(i,j+1),occ+1);
+	              		t1.put(s.substring(i,j+1),occ+1);
+	              	}	
+              	}
+             	
+             	atual = s.substring(j+1,i );
+             	occ = t1.get(atual);         	
+             	if(atual.length() < s1.length())
+              	{
+	             	if(occ==null){
+	              		t1.put(s.substring(j+1,i),1);
+	              		occ=1;
+	              	}else{
+	              		t2.put(s.substring(j+1,i),occ+1);
+	              		t1.put(s.substring(j+1,i),occ+1);
+	              	}	
+              	}
+        	 }
+         }
+        
+         
+         
+   
+    
+         
+         int a=0;    
+         a++;
+         return contador;
+
+
+    }
+    public static boolean checkAnagram(String s1, String s2) {
+    	char[] a = s1.toCharArray();
+    	char[] b = s2.toCharArray();
+    	Arrays.sort(a);
+    	Arrays.sort(b);
+    	if (Arrays.equals(a, b)) {
+    	   return true;
+    	} 
+    	return false;
+    }
+
+    public static void main(String[] args) throws IOException {
+    	//System.out.println(sherlockAndAnagrams("ifailuhkqq"));
+    	//System.out.println(sherlockAndAnagrams("kkkk"));
+    	//399
+    	//System.out.println(sherlockAndAnagrams("ifailuhkqqhucpoltgtyovarjsnrbfpvmupwjjjfiwwhrlkpekxxnebfrwibylcvkfealgonjkzwlyfhhkefuvgndgdnbelgruel"));
+    	
+    	System.out.println(sherlockAndAnagrams("cdcd"));
+    }
+}

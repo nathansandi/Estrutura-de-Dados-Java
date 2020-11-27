@@ -1,0 +1,38 @@
+import java.util.HashSet;
+
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ConjuntoEspalhamento conjunto = new ConjuntoEspalhamento();
+		
+		conjunto.adiciona("palavra");
+		conjunto.adiciona("computador");
+		conjunto.adiciona("apostila");
+		conjunto.adiciona("instrutor");
+		conjunto.adiciona("mesa");
+		conjunto.adiciona("telefone");
+		
+		if(!conjunto.contem("apostila")) {
+			System.out.println("Erro: não tem a palavra apostila");
+		}
+		conjunto.remove("apostila");
+		if(conjunto.contem("apostila")) {
+			System.out.println("Erro:  tem a palavra apostila");
+		}
+		
+		if(conjunto.tamanho()!=5) {
+			System.out.println("Erro: não tem a palavra apostila");
+		}
+		//****
+		//API JAVA
+		HashSet conjuntoS = new HashSet();
+		conjuntoS.add("Rafael");
+		conjuntoS.add("Rafael");
+		conjuntoS.add("Ana");
+		conjuntoS.add("Paulo");
+		System.out.println(conjunto.toString());
+
+	}
+
+} 

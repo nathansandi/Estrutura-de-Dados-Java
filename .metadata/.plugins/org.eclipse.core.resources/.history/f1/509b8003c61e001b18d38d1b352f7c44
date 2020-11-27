@@ -1,0 +1,70 @@
+import java.util.LinkedList;
+
+public class Teste {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//Teste adiciona no fim
+		ListaLigada lista = new ListaLigada();
+		lista.adiciona("Rafael");
+		lista.adiciona("Paulo");
+		System.out.println("Espera Rafael Paulo - "+lista);
+		
+		//Espera Rafael,Paulo
+		
+		//*************************
+		//Teste adiciona por posição
+		lista = new ListaLigada();
+		lista.adiciona("Rafael");
+		lista.adiciona(0,"Paulo");
+		lista.adiciona(1,"Camila");
+		System.out.println("Espera Paulo Camila e Rafael - "+lista);
+		//Paulo Camila Rafael
+		
+		//*************************
+		//Teste Get por posicao´
+		System.out.println("Espera Paulo - "+lista.pega(0));
+		//Saida Esperada - Paulo
+		
+		//**************************
+		//Teste remove por posicao
+		lista.remove(1);
+		System.out.println("Espera Paulo e Rafael - "+lista);
+		//Paulo Rafael
+		
+		//***************************
+		System.out.println("Espera 2 - "+lista.tamanho());
+		//Saida esperada 2
+		
+		//***************************
+		//Teste contem elemento
+		System.out.println(lista.contem("Rafael"));
+		System.out.println(lista.contem("Camila"));
+		//True e False
+		
+		//***************************
+		//Teste adiciona no inicio
+
+		lista.adicionaNoComeco("Nathan");
+		lista.adicionaNoComeco("Pedro");
+		System.out.println("Espera Pedro Nathan Paulo Rafael - "+lista);
+		
+		//Teste Remove do Começo e fim
+		lista.removeDoComeco();
+		System.out.println("Espera  Nathan Paulo - "+lista);
+		System.out.println("***************");
+		
+		//***
+		LinkedList<String> alunosL= new LinkedList<String>();
+		alunosL.add("Nathan");
+		alunosL.add("Pedro");
+		alunosL.addFirst("Rafael");
+		System.out.println(alunosL.contains("Nathan"));
+		System.out.println(alunosL.toString());
+		
+		
+		
+	}
+	
+
+}

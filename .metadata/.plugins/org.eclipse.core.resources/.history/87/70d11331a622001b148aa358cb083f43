@@ -1,0 +1,49 @@
+import java.io.IOException;
+import java.util.HashMap;
+
+public class Anagrama {
+	   // Complete the sherlockAndAnagrams function below.
+    static int sherlockAndAnagrams(String s) {
+    	 HashMap<String,Integer> t1 = new HashMap<String,Integer>();
+    	 HashMap<String,Integer> t2 = new HashMap<String,Integer>();
+     	
+    	 StringBuffer sb = new StringBuffer(s);
+
+    	 String s1 =  sb.reverse().toString();
+    	//1-Faço Mapeamento dos Conjuntos
+    	//2-Quando tiver uma nova ocorrencia, verifico se ela é ou nao vizinha
+    	//3-Se n for, adiciono +1
+    	//4-depois adiciono na contagem a logica da PA
+    	 int contador = 0;
+    	 Integer occ = null;
+         for(int i = 0 ; i <s.length() ; i++) {
+        	 for(int j=0 ; j < s.length() ; j++) {
+        		String atual = s.substring(i, j);
+             	occ = t1.get(atual);         	
+              	if(occ==null){
+              		t1.put(s.substring(i,j),1);
+              		occ=1;
+              	}else{
+              		t1.put(s.substring(i,j),occ+1);
+              	}
+        	 }
+         }
+
+         
+         int a=0;    
+         
+         return contador;
+
+
+    }
+
+
+    public static void main(String[] args) throws IOException {
+    	//System.out.println(sherlockAndAnagrams("ifailuhkqq"));
+    	//System.out.println(sherlockAndAnagrams("kkkk"));
+    	//399
+    	//System.out.println(sherlockAndAnagrams("ifailuhkqqhucpoltgtyovarjsnrbfpvmupwjjjfiwwhrlkpekxxnebfrwibylcvkfealgonjkzwlyfhhkefuvgndgdnbelgruel"));
+    	
+    	System.out.println(sherlockAndAnagrams("cdcd"));
+    }
+}

@@ -1,0 +1,82 @@
+import java.util.HashMap;
+
+/*
+ * 
+Print Yes if he can use the magazine to create an untraceable replica of his ransom note. Otherwise, print No.
+
+Sample Input 0
+
+6 4
+give me one grand today night
+give one grand today
+Sample Output 0
+
+Yes
+Sample Input 1
+
+ */
+public class RandomNotesProblem {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		 String[] teste1 = new String[29];
+		 String[] teste2 = new String[20];
+		 teste1[0] = "give";
+		 teste1[1] = "the";
+		 teste1[2] = "note";
+		 
+		 teste2[0] = "give";
+		 teste2[1] = "note";
+		 //Expect True 
+		 soluciona(teste1,teste2);
+		 
+		 teste1[0] = "give";
+		 teste1[1] = "the";
+		 teste1[2] = "note";
+		 
+		 teste2[0] = "give";
+		 teste2[1] = "voice";
+		 //Expect False  
+		 soluciona(teste1,teste2);
+	
+	}
+	
+	public static void soluciona(String[] magazine, String[] note) {
+		int index = 0; 
+		HashMap<String, Integer> myMagazine = new HashMap<String, Integer>();
+		HashMap<String, Integer> myNotes = new HashMap<String, Integer>();
+		
+		//primitivo pois pode ser null
+		Integer occ;
+		//Populate myMagazine
+		for(int i = 0; i < magazine.length; i++) {
+			occ = myMagazine.get(magazine[i]);
+			if(occ==null) {
+				myMagazine.put(magazine[i], 1);			
+			}else {
+				myMagazine.put(magazine[i], occ+1);
+			}
+		}
+		
+		for(int i = 0; i < note.length; i++) {
+			occ = myNotes.get(note[i]);
+			if(occ==null) {
+				myNotes.put(note[i], 1);			
+			}else {
+				myNotes.put(note[i], occ+1);
+			}
+		}
+		
+		boolean canReplicate = true; 
+		//percorre my keyset
+		for(String s: myNotes.keySet())
+		{
+			 if(!myMagazine.containsKey(s) || (myMagazine.get(s) < myNotes.get(s)) ) {
+	                canReplicate = false;
+	                break;
+	         }
+		}
+		System.out.println( (canReplicate) ? "Yes" : "No" );
+	}
+
+}

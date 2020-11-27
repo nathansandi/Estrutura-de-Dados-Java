@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.jst.ws.client.type.java">
+		<item value="http://192.168.188.133:9090/dictionary?wsdl"/>
+		<item value="http://192.168.189.11:9090/v1/financialProductsService?wsdl"/>
+		<item value="http://192.168.189.11:9090/v1/scarService?wsdl"/>
+		<item value="http://192.168.189.11:9090/v1/smcService?wsdl"/>
+	</list>
+</section>

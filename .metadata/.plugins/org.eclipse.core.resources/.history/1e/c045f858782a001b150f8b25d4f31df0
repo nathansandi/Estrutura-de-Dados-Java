@@ -1,0 +1,32 @@
+package pt.victoria.hub.application;
+
+public class PreferencialContacts {
+	private String ContactType;
+	private String ContactValue;
+	private String ContactDisplay;
+	private String Standard;
+
+	public PreferencialContacts() {
+		
+	}
+	public String getContactType() {
+		return ContactType;
+	}
+	public void setContactType(String contactType) {
+		ContactType = contactType;
+	}
+	public String getContactValue() {
+		return ContactValue;
+	}
+	public void setContactValue(String contactValue) {
+		ContactValue = contactValue;
+	}
+	public String getContactDisplay() {
+		return ContactDisplay;
+	}
+	public void setContactDisplay(String contactDisplay) {
+		ContactDisplay = contactDisplay;
+	}
+	
+	
+}

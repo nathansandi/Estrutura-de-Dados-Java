@@ -1,0 +1,46 @@
+
+public class ListaLigada {
+	private Celula primeira;
+	private Celula ultima;
+	private int totalElementos = 0;
+	public void adiciona(Object elemento) {
+		if(this.totalElementos==0) {
+			this.adicionaNoComeco(elemento);
+		}else {
+			Celula nova= new Celula(elemento);
+			
+		
+		}
+		
+	}
+	public void adiciona(int posicao, Object elemento) {
+		
+		
+	}
+	public Object pega(int posicao) {
+		return null;
+		}
+	public void remove(int posicao){
+		
+	}
+	public int tamanho() {
+		return 0;
+	}
+	public boolean contem(Object o) {
+		return false;
+	}
+	public void adicionaNoComeco(Object elemento) {
+		Celula nova = new Celula(this.primeira, elemento);
+		this.primeira = nova;
+		if(this.totalElementos == 0){
+			this.ultima=this.primeira;
+		}
+		this.totalElementos++;
+	}
+	public void removeDoComeco() {
+		
+	}
+	public void removeDoFim() {
+		
+	}
+}
